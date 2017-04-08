@@ -1,0 +1,77 @@
+#include<stdio.h>
+
+struct Node{
+  int data;
+  struct Node* next;
+};
+ 
+struct Node* front = NULL;
+struct Node* rear = NULL;
+
+void insert(int n)
+{
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+    temp -> data = n;
+    temp -> next = NULL;
+    if(front == NULL && rear == NULL)
+    {
+        front = rear = temp;
+        return;
+    }
+    rear -> next = temp;
+    rear = temp;
+    
+}
+
+void print()
+{
+    printf("the queue is\n");
+    struct Node* temp = front;
+    while(temp != NULL)
+    {
+        printf("%d\t", temp -> data);
+        temp = temp -> next;
+    }
+    printf("\n");
+}
+
+void del()
+{
+    struct Node* temp = front;
+    printf("the element to be deleted is %d\n", temp -> data);
+    front = temp -> next;
+    free(temp);
+}
+
+void content()
+{
+    struct Node* temp1 = front;
+    struct Node* temp2 = rear;
+
+    printf("the element in the front of the queue is %d\n", temp1 -> data);
+    printf("the element in the rear of the queue is %d\n", temp2 -> data);
+
+    
+}
+
+
+int main()
+{
+   int n;
+   insert(2);
+   insert(5);
+   insert(3);
+   insert(7);
+   insert(1);
+   insert(10);
+   print();
+   del();
+   print();
+   insert(9);
+   print();
+   content();
+   del();
+   print();
+    
+   return 0; 
+}
