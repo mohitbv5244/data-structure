@@ -1,0 +1,6 @@
+The Stack data structure is implemented using Linked list.
+Stack follows a data structure such as LIFO(Last in First out).
+We have a pointer Top to know the address of the last element in the Stack.
+The elements are inserted from the rear and deleted from the 
+rear. To see the contents of the Stack, we copy the address of the
+rear pointer to a temporary pointer and display the values in the Stack.
