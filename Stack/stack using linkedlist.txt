@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+struct Node{
+    int data;
+    struct Node* next;
+}Node;
+
+struct Node* top= NULL;
+
+
+
+void push(int x)
+{ 
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+    temp -> data = x;
+    temp -> next = NULL;
+    if(top == NULL)
+    {
+        
+        top = temp;
+        return;
+    }
+    temp -> next = top;
+    top = temp;
+    
+}
+
+void print()
+{
+    struct Node* temp = top;
+    printf("the list is\n");
+    while(temp != NULL)
+    {
+        printf("%d\n", temp -> data);
+        temp =  temp -> next;
+    }
+    printf("\n");
+    
+}
+
+void pop()
+{
+    struct Node* temp = top;
+    printf("the item to be deleted is %d\n", temp -> data);
+    top = top -> next;
+    free(temp);
+}
+
+
+int main()
+{
+    int n, i, a;
+    push(5);
+    push(4);
+    push(3);
+    push(2);
+    push(1);
+    print();
+    push(6);
+    print();
+    pop();
+    print();
+    push(11);
+    push(12);
+    print();
+    pop();
+    print();
+    return 0;
+}
+
+
