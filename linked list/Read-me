@@ -2,3 +2,11 @@ The linked list is a data structure. We have a head pointer, which is used to tr
 We insert the node at the begining in this code.
 
 We can also delete the node at any position provided we link them properly after the deletion.
+
+The code also contains, how to reverse a linked list.
+We need three pointers and one pointer should point to
+the head node, and another one to the node pointed by the 
+head(next) node and a node for previous.
+This way we can reverse a linked list.
+
+The code also contains to add nodes at the head and at the tail.
