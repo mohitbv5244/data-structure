@@ -1,0 +1,4 @@
+The linked list is a data structure. We have a head pointer, which is used to traverse the linked list.
+We insert the node at the begining in this code.
+
+We can also delete the node at any position provided we link them properly after the deletion.
