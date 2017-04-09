@@ -1,0 +1,92 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+struct Node{
+    int data;
+    struct Node* next;
+}Node;
+
+struct Node* head;
+
+void insert(int x)
+{
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+    temp -> data = x;
+    temp -> next = head;
+    head = temp;
+}
+
+void print()
+{
+    struct Node* temp = head;
+    printf("the list is\n");
+    while(temp != NULL)
+    {
+        printf("%d\n", temp -> data);
+        temp =  temp -> next;
+    }
+    printf("\n");
+    
+}
+
+void delete(int x)
+{
+    struct Node* temp1 = head;
+    if(x ==1)
+    {
+        head = temp1-> next;
+        free(temp1);
+        return;
+    }
+    int i;
+    
+    for(i = 0; i <x-2; i++)
+    
+        temp1 =  temp1 -> next;
+        
+    struct Node* temp2 = temp1->next;
+    temp1 -> next = temp2 -> next;
+    free(temp2);
+    
+}
+
+void reverse()
+{
+    struct Node *current, *prev, *next;
+    prev = NULL;
+    current = head;
+    while(current != NULL)
+    {
+        next = current -> next;
+        current-> next = prev;
+        prev = current;
+        current = next;
+        
+    }
+    head = prev; 
+    
+}
+
+int main()
+{
+    int n, i, a;
+    head = NULL;
+    insert(5);
+    insert(4);
+    insert(3);
+    insert(2);
+    insert(1);
+    print();
+    printf("enter the element position to be deleted\n");
+    int x;
+    scanf("%d", &x);
+    delete(x);
+    print();
+    insert(6);
+    print();
+    reverse();
+    print();
+    return 0;
+}
+
+
