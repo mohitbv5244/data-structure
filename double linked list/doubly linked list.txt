@@ -1,0 +1,78 @@
+#include <stdio.h>
+
+struct Node{
+  int data;
+  struct Node* next;
+  struct Node* prev;
+};
+
+struct Node* head = NULL;
+
+struct Node* getnewnode(int n)
+{ 
+    struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+    newnode -> data = n;
+    newnode -> next = NULL;
+    newnode -> prev = NULL;
+    return newnode;
+}
+
+void insert(int n)
+{
+    struct Node* newnode = getnewnode(n);
+    if(head == NULL)
+    {
+        head = newnode;
+        return;
+    }
+    head -> prev = newnode;
+    newnode -> next = head;
+    head = newnode;
+}
+
+void print()
+{
+    struct Node* temp = head;
+    printf("the double linked list is\n");
+    while(temp != NULL)
+    {
+        printf("%d\n", temp -> data);
+        temp = temp -> next;
+        
+    }
+    printf("\n");
+}
+
+void prinntR()
+{
+    struct Node* temp = head;
+    while(temp -> next != NULL)
+    {
+        temp = temp -> next;
+    }
+    printf("the double linked list in reverse is\n");
+     while(temp != NULL)
+    {
+        printf("%d\n", temp -> data);
+        temp = temp -> prev;
+    }
+    printf("\n");
+}
+int main()
+{
+    int n;
+    insert(2);
+    insert(4);
+    insert(1);
+    insert(5);
+    insert(7);
+    insert(9);
+    print();
+    prinntR();
+    insert(10);
+    insert(11);
+    print();
+    prinntR();
+    return 0;
+}
+
