@@ -1,0 +1,8 @@
+The code contains how to insert node at the head and at the tail.
+
+The double linked list has the next address and the previous address.
+So we can traverse the list using a single pointer in both the directions.
+
+The code also contains how to delete a node at any position,
+provided we link the nodes properly after deletion.
+
