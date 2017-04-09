@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+struct Node{
+  int data;
+  struct Node* next;
+};
+
+struct Node* head = NULL;
+
+void insert(int n)
+{
+    struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+    newnode -> data = n;
+    newnode -> next = head;
+    head = newnode;
+}
+
+void print()
+{
+    struct Node* temp = head;
+    printf("the linked list is\n");
+    while(temp != NULL)
+    {
+        printf("%d\n", temp -> data);
+        temp = temp -> next;
+        
+    }
+    printf("\n");
+}
+
+void delete(int n)
+{
+    struct Node* temp1 = head;
+    if(n == 1)
+    {
+        head = temp1 -> next;
+        free(temp1);
+        return;
+    }
+    int i;
+    for(i = 0 ;  i< n-2 ; i++)
+    {
+        temp1 = temp1 -> next;
+    }
+    struct Node* temp2 = temp1-> next;
+    temp1 -> next = temp2 -> next;
+    free(temp2);
+}
+
+int main()
+{
+    int n;
+    insert(2);
+    insert(4);
+    insert(1);
+    insert(5);
+    insert(7);
+    print();
+    printf("enter the position to be deleted\n");
+    scanf("%d", &n);
+    delete(n);
+    print();
+    insert(11);
+    insert(12);
+    print();
+    return 0;
+}
+
