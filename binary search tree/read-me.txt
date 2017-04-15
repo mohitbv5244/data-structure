@@ -1,0 +1,21 @@
+The binary search tree is a non-linear data structure.
+A tree is called binary search tree, when the elements in the 
+left sub tree is less than or equal to the root node and the elements in the
+right sub tree are greater than root node.
+
+We can use the recursion method to insert the element to the tree by using the
+root address. We add the elements to the left sub tree when the elements are
+lesser than or equal to the element in the root node, and add the elements to the 
+right sub tree when the elements are greater than the element in the root node.
+
+We can traverse the tree using different ways:
+1) Preorder
+2) Post order
+3) Inorder
+
+1) Preorder: root, left and right: we first access the root node and then the left node and right node
+2) Postprder: left, right, root: we first access the left node and then the right node and root node. 
+3) Inorder: left, root,right: we first access the left node and then the root node and right node. 
+
+
+
